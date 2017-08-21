@@ -165,9 +165,12 @@ public class FloatViewManager {
         params.gravity= Gravity.BOTTOM|Gravity.LEFT;
         params.x=0;
         params.y=0;
-        boolean tmpbool=Util.hasAuthorFloatWin(mContext);
-        params.type=LayoutParams.TYPE_TOAST;
-//        params.type= LayoutParams.TYPE_PHONE;
+        boolean tmpbool=Util.hasAuthorFloatWin(mContext);   //判断权限
+        if(tmpbool){
+            params.type= LayoutParams.TYPE_PHONE;
+        }else{
+            params.type=LayoutParams.TYPE_TOAST;
+        }
         params.flags= LayoutParams.FLAG_NOT_FOCUSABLE| LayoutParams.FLAG_NOT_TOUCH_MODAL;
         params.format= PixelFormat.RGBA_8888;
         wm.addView(mfloatMenuView, params);
@@ -180,8 +183,13 @@ public class FloatViewManager {
             params.gravity= Gravity.TOP|Gravity.LEFT;
             params.x=0;
             params.y=0;
-            boolean tmpbool=Util.hasAuthorFloatWin(mContext);
-            params.type=LayoutParams.TYPE_TOAST;
+            boolean tmpbool=Util.hasAuthorFloatWin(mContext);   //判断权限
+            if(tmpbool){
+                params.type= LayoutParams.TYPE_PHONE;
+            }else{
+                params.type=LayoutParams.TYPE_TOAST;
+            }
+
 //        params.type= LayoutParams.TYPE_PHONE;
             params.flags= LayoutParams.FLAG_NOT_FOCUSABLE| LayoutParams.FLAG_NOT_TOUCH_MODAL;
             params.format= PixelFormat.RGBA_8888;
